@@ -8,6 +8,12 @@ spec:
     image: hsa404/assignments:latest
     ports:
     - containerPort: 8080
+    env:
+    - name: PORT
+      valueFrom:
+        configMapKeyRef:
+          name: port-config
+          key: port
     readinessProbe:
       httpGet:
         path: /
